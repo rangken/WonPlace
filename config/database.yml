@@ -1,0 +1,27 @@
+mysql: &mysql
+  adapter: mysql2
+  encoding: utf8
+  collation: utf8_general_ci
+  reconnect: false
+  host: 127.0.0.1
+  port: 3306
+  pool: 5
+
+development:
+  <<: *mysql
+  host: www.wonplace.net
+  database: wonplace_pro
+  username: root
+
+test:
+  <<: *mysql
+  host: 127.0.0.1
+  database: wonplace_test
+  username: root
+
+production:
+  <<: *mysql
+  host: www.wonplace.net
+  database: wonplace_pro
+  username: root
+  password: junhoi18

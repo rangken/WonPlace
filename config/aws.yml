@@ -1,0 +1,15 @@
+common: &common
+  access_key_id: AKIAICS5LXI7KLTNAXAQ
+  secret_access_key: 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
+
+development:
+  <<: *common
+  bucket: wonplace
+
+test:
+  <<: *common
+  bucket: wonplace
+
+production:
+  <<: *common
+  bucket: wonplace

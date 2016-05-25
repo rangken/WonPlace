@@ -1,0 +1,14 @@
+ko:
+  wonplace:
+    errors:
+      record_not_found: 유효하지 않은 번호입니다.
+      unauthorized: 권한이 없습니다.
+      mysql2_error: 일시적인 오류입니다.
+      sign_up_fail: 회원 가입에 실패했습니다.
+      sign_in_fail: 아이디와 비밀번호를 확인해주세요.
+      sign_up_already: 이미 존재하는 아이디 입니다.
+      password_reset_fail: 비밀번호 찾기를 진행 할 수 없습니다.
+      folder_create_fail: 폴더 생성에 실패했습니다.
+      scrap_create_fail: 스크랩 생성에 실패했습니다.
+      scrap_move_fail: 스크랩 이동을 실패했습니다.
+      folder_invite_forbidden: 해당 폴더에 초대를 할 수 없습니다.

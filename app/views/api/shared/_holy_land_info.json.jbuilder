@@ -1,0 +1,1 @@
+json.extract! holy_land_info, :id, :img_url

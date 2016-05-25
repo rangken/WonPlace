@@ -1,0 +1,24 @@
+<h2>포스팅 테스트</h2>
+
+<form accept-charset="UTF-8" action="/api/v1/posts" method="post" enctype="multipart/form-data">
+	<input name="utf8" type="hidden" value="&#x2713;" />
+	<label for="user_id">user_id</label>
+	<input id="user_id" name="user_id" type="text" />
+	<br>
+	<label for="spot_id">spot_id</label>
+	<input id="spot_id" name="spot_id" type="text" />
+	<br>
+	<label for="content">포스팅 내용</label>
+	<input id="content" name="content" type="text" />
+	<br>
+	<label for="hashtags">해쉬태그</label>
+	<input id="hashtags" name="hashtags" type="text" />
+	<br>
+	<label for="img">이미지</label>
+	<input id="img" name="img" type="file" />
+	<br>
+	<label for="media">음성</label>
+	<input id="media" name="media" type="file" />
+	<br>
+	<input name="commit" type="submit" value="업로드" />
+</form>
