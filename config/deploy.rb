@@ -2,7 +2,7 @@
 lock '3.4.0'
 
 set :application, 'wonplace'
-set :repo_url, 'git@github.com:rangken/test.git'
+set :repo_url, 'https://github.com/rangken/test.git'
 set :deploy_to, '/u/apps/wonplace_production/'
 set :unicorn_config_path, "#{shared_path}/config/unicorn.rb"
 set :unicorn_rack_env, 'development'
