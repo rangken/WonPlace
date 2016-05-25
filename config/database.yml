@@ -12,6 +12,7 @@ development:
   host: www.wonplace.net
   database: wonplace_pro
   username: root
+  password: junhoi18
 
 test:
   <<: *mysql

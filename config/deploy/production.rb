@@ -9,7 +9,7 @@
 role :app, %w{www.wonplace.net}
 role :web, %w{www.wonplace.net}
 role :db,  %w{www.wonplace.net}
-server 'www.wonplace.net', user: 'deploy', roles: %w{web app db}
+server 'www.wonplace.net', user: 'root', roles: %w{web app db}
 
 
 
