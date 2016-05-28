@@ -1,6 +1,6 @@
 common: &common
-  access_key_id: AKIAICS5LXI7KLTNAXAQ
-  secret_access_key: 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
+  access_key_id: AKIAI2W2QNVPXKRYCS4Q
+  secret_access_key: 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
 
 development:
   <<: *common
