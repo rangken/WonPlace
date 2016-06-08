@@ -16,8 +16,12 @@ module Api
 		end
 
 		def check
+      logger.debug 'check'
 			@user = current_user
 			@user.rotation_count = @user.rotation_count + 1
+      @user.save!
+      logger.debug "heck!!!"
+      logger.debug @user
 			render 'api/users/show'
 		end
 	end

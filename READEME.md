@@ -29,4 +29,5 @@
 - production 설정은 database.yml 따라가는게 아니고 chef/nodes/ 에 database_info 쪽에 정보를 넣어야 한다.
 
 ### Cap 배포 설정
-- bundle install && bundle exec unicorn -E production -c config/unicorn.rb
+- PATH=/opt/rbenv/shims:$PATH bundle install && bundle exec unicorn -E production -c config/unicorn.rb
+- PATH=/opt/rbenv/shims:$PATH bundle exec unicorn -E production -c config/unicorn.rb -D
