@@ -23,7 +23,7 @@ module Api
 
     def create
       count = Post.where('user_id = ? and created_at > ? and spot_id = ?', current_user.id, Time.now.midnight, params[:spot_id]).count
-      if count >= 0
+      if count >= 10
         puts '하루 10개를 초과 했습니다.'
         render_success('하루 10개를 초과 했습니다')
         return
