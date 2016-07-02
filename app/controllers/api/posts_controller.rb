@@ -81,7 +81,7 @@ module Api
 
     def spot_counts
       @spot_counts = Post.group('spot_id').count("DISTINCT user_id")
-      render 'api/posts/spot_counts'
+      render json: @spot_counts, callback: params['callback']
     end
   end
 end
