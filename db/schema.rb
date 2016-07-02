@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151101031207) do
+ActiveRecord::Schema.define(version: 20160702062908) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -83,9 +83,20 @@ ActiveRecord::Schema.define(version: 20151101031207) do
     t.integer  "media_file_size",    limit: 4
     t.datetime "media_updated_at"
     t.integer  "user_id",            limit: 4
-    t.integer  "spot_id",            limit: 4
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.integer  "holy_land_id",       limit: 4
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
+    t.integer  "spot_id",            limit: 4,                     null: false
+    t.boolean  "open",                             default: false, null: false
+    t.integer  "deleted",            limit: 1
+  end
+
+  add_index "posts", ["user_id", "deleted"], name: "user_id_2", using: :btree
+  add_index "posts", ["user_id", "open"], name: "user_id", using: :btree
+
+  create_table "properties", force: :cascade do |t|
+    t.string "key",   limit: 255, null: false
+    t.string "value", limit: 255, null: false
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -108,13 +119,34 @@ ActiveRecord::Schema.define(version: 20151101031207) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",      limit: 255, default: "", null: false
-    t.string   "auth_token", limit: 255
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "auth_token",             limit: 255
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.integer  "rotation_count",         limit: 4,   default: 0
   end
 
   add_index "users", ["auth_token"], name: "index_users_on_auth_token", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "web_holy_lands", force: :cascade do |t|
+    t.string   "title",         limit: 255
+    t.string   "brief_info",    limit: 255
+    t.string   "content",       limit: 255
+    t.float    "latitude",      limit: 24
+    t.float    "longitude",     limit: 24
+    t.string   "img_file_name", limit: 255
+    t.datetime "created_at",                null: false
+  end
 
 end

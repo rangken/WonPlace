@@ -1,6 +1,6 @@
 module Api
   class PostsController < BaseController
-    skip_before_action :require_auth_token, only: [:all, :search, :show]
+    skip_before_action :require_auth_token, only: [:all, :search, :show, :phone, :update_phone, :spot_counts]
 
     def all
       count = params[:count] || 20
@@ -14,7 +14,7 @@ module Api
     def index
       count = params[:count] || 20
       page = params[:page] || 1
-      @posts = Post.where(user_id: current_user.id).page(page).per(count).order(created_at: :desc)
+      @posts = Post.where(deleted: 0, user_id: current_user.id).page(page).per(count).order(created_at: :desc)
     end
 
     def show
@@ -49,7 +49,7 @@ module Api
 
     def destroy
       post = Post.find(params[:id])
-      post.destroy
+      post.update_attributes(deleted: 1)
       render_success('성공')
     end
 
@@ -65,6 +65,23 @@ module Api
         @posts = post_where.where(spot_id: spot_id).page(page).per(count).order(created_at: :desc)
       end
       render 'api/posts/index'
+    end
+
+    def phone
+      phone_number = Property.find_by_key('PHONE_NUMBER')
+      render_success(phone_number.value)
+    end
+
+    def update_phone
+      @property = Property.find_or_create_by(key: 'PHONE_NUMBER')
+      @property.value = params[:phone]
+      @property.save!
+      render_success(@property.value)
+    end
+
+    def spot_counts
+      @spot_counts = Post.group('spot_id').count("DISTINCT user_id")
+      render 'api/posts/spot_counts'
     end
   end
 end

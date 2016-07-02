@@ -4,7 +4,10 @@ namespace :api, defaults: { format: 'json' }  do
 			post 'sign_in', on: :collection
 		end
 		resources :posts, only: [:index, :show, :create, :destroy] do
-			get 'all', on: :collection
+			get 'phone', on: :collection
+      get 'update_phone', on: :collection
+      get 'spot_counts', on: :collection
+      get 'all', on: :collection
 			get 'search', on: :collection
 			post 'open', on: :collection
 		end
