@@ -9,10 +9,10 @@ mysql: &mysql
 
 development:
   <<: *mysql
-  host: www.wonplace.net
+  host: 222.122.203.189
   database: wonplace_pro
-  username: root
-  password: junhoi18
+  username: wonline
+  password: won@0428
 
 test:
   <<: *mysql
@@ -22,7 +22,7 @@ test:
 
 production:
   <<: *mysql
-  host: www.wonplace.net
+  host: 222.122.203.189
   database: wonplace_pro
-  username: root
-  password: junhoi18
+  username: wonline
+  password: won@0428

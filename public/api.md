@@ -54,16 +54,16 @@
 	- GET
 	- post_id : 포스팅한 아이디
 	
-	### 체크인
-	- 특정 장소 체크인
-		- /api/v1/holy_lands/check
-		- POST
-    - spot_id : 장소 아이디
-     
-	### 순례 예약
-	- 순례예약
-		- /api/v1/reservation
-		- POST
-		- start_date(시작일), end_date(끝나는일), person(인원), 
-		- room_inquiry(룸 문의),
-		- meal_inquiry(식사 문의), etc_inquiry(기타 문의), phone_number(핸드폰)
+### 체크인
+- 특정 장소 체크인
+    - /api/v1/holy_lands/check
+    - POST
+- spot_id : 장소 아이디
+ 
+### 순례 예약
+- 순례예약
+    - /api/v1/reservation
+    - POST
+    - start_date(시작일), end_date(끝나는일), person(인원), 
+    - room_inquiry(룸 문의),
+    - meal_inquiry(식사 문의), etc_inquiry(기타 문의), phone_number(핸드폰)
